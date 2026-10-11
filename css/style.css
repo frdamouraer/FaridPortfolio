@@ -125,3 +125,27 @@ body{background:#020208}\n.space-bg{z-index:0}
 @keyframes welcomeStable{0%{opacity:0;filter:blur(10px);letter-spacing:.9em;transform:scale(.96)}20%,78%{opacity:1;filter:blur(0);letter-spacing:.55em;transform:scale(1)}100%{opacity:0;filter:blur(5px);transform:scale(1.04)}}
 @keyframes nameExitStable{to{opacity:0;visibility:hidden}}
 @media(max-width:600px){.intro-initial{left:calc(50% - 95px)!important}.farid-word{left:calc(50% - 95px)!important}.intro-flare{left:calc(50% - 95px)!important}}
+
+/* GEMINI-INSPIRED INTRO: full-screen chromatic burst + one-shot FARID reveal */
+.intro--name{background:transparent!important;isolation:isolate;overflow:hidden}
+.intro--name:after{content:"";position:absolute;z-index:-1;inset:-35%;pointer-events:none;opacity:0;background:radial-gradient(ellipse at 50% 50%,#ffffff 0%,#b8f1ff 5%,#70c8ff 13%,#8876ff 25%,#e18bff 36%,#ff9fda 43%,transparent 66%);transform:scale(.08);filter:blur(18px);animation:geminiPageBurst 1.65s cubic-bezier(.16,.72,.22,1) .65s both}
+.intro--name .intro-kicker{position:absolute;top:calc(50% - 115px);margin:0;animation:kickerIn .9s .3s both}
+.farid-intro-mark{width:min(90vw,850px)!important;height:230px!important;display:flex!important;align-items:center;justify-content:center;position:relative;isolation:isolate}
+.intro-initial{display:none!important}
+.farid-word.intro-full-name{position:relative!important;left:auto!important;top:auto!important;transform:none!important;display:block!important;margin:0!important;padding:0!important;font:800 clamp(3.8rem,13vw,9rem)/1 "Orbitron",sans-serif!important;letter-spacing:.12em!important;color:#fff!important;opacity:0;filter:blur(18px);text-shadow:0 0 15px #fff,0 0 35px #8ee8ff,0 0 75px #8b75ff,0 0 125px #f58dff!important;animation:faridFullReveal 1.15s cubic-bezier(.2,.8,.2,1) 1.05s forwards!important}
+.intro-flare{position:fixed!important;z-index:-1!important;inset:-30%!important;left:auto!important;top:auto!important;width:auto!important;height:auto!important;border-radius:0!important;opacity:0;transform:scale(.1);background:radial-gradient(ellipse at center,#ffffff 0%,#aef2ff 7%,#73bfff 18%,#8973ff 31%,#e18aff 43%,#ff9cda 52%,transparent 70%)!important;box-shadow:none!important;filter:blur(30px) saturate(1.4);animation:geminiFullFlash 1.8s cubic-bezier(.16,.72,.22,1) .62s both!important}
+.intro-line{opacity:0!important}
+.space-bg{background:radial-gradient(ellipse at 30% 25%,#21114b 0%,#0b0b24 42%,#02030a 100%)}
+.nebula{opacity:.32}
+.nebula--one{background:#6f38ff;filter:blur(105px);animation:nebulaDrift 17s ease-in-out infinite alternate,nebulaGlow 5s ease-in-out infinite alternate}
+.nebula--two{background:#176cff;filter:blur(115px);animation:nebulaDrift 20s ease-in-out infinite alternate-reverse,nebulaGlow 6s ease-in-out infinite alternate-reverse}
+.meteor{width:clamp(150px,22vw,360px);height:2px;filter:drop-shadow(0 0 8px #9e8bff) drop-shadow(0 0 18px #70cfff);animation:meteor 5.5s linear infinite}
+.meteor--one{top:10%;left:8%;animation-delay:.2s}
+.meteor--two{top:28%;left:68%;animation-delay:2.2s}
+.space-bg:before{content:"";position:absolute;inset:-25%;pointer-events:none;background:radial-gradient(ellipse at 25% 30%,#6d32ff2c,transparent 35%),radial-gradient(ellipse at 75% 70%,#147aff24,transparent 38%);filter:blur(35px);animation:cosmicBreath 9s ease-in-out infinite alternate}
+@keyframes geminiPageBurst{0%{opacity:0;transform:scale(.08) rotate(-10deg)}18%{opacity:.95}55%{opacity:.8;transform:scale(1.25) rotate(5deg)}100%{opacity:.22;transform:scale(1.65) rotate(12deg)}}
+@keyframes geminiFullFlash{0%{opacity:0;transform:scale(.08) rotate(-10deg)}15%{opacity:1;transform:scale(.55) rotate(-4deg)}42%{opacity:.95;transform:scale(1.1) rotate(3deg)}72%{opacity:.45;transform:scale(1.35) rotate(7deg)}100%{opacity:0;transform:scale(1.65) rotate(12deg)}}
+@keyframes faridFullReveal{0%{opacity:0;filter:blur(18px);transform:scale(.82);letter-spacing:.35em}60%{opacity:1;filter:blur(0);transform:scale(1.035);letter-spacing:.12em}100%{opacity:1;filter:blur(0);transform:scale(1);letter-spacing:.12em}}
+@keyframes nebulaGlow{from{opacity:.18;scale:1}to{opacity:.42;scale:1.13}}
+@keyframes cosmicBreath{from{transform:scale(.94) rotate(-4deg);opacity:.6}to{transform:scale(1.08) rotate(4deg);opacity:1}}
+@media(max-width:600px){.farid-word.intro-full-name{font-size:clamp(3rem,14vw,5rem)!important;letter-spacing:.08em!important}.intro--name .intro-kicker{top:calc(50% - 95px)}}
