@@ -36,16 +36,18 @@ body{background:#020208}\n.space-bg{z-index:0}
 .star{animation:twinkle var(--duration,4s) ease-in-out infinite alternate,starPulse 6s ease-in-out infinite}
 .intro{background:transparent;overflow:hidden}
 .intro:before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.6;background:radial-gradient(circle at 50% 48%,#7b53ff12,transparent 24%),radial-gradient(circle at 50% 50%,transparent 0%,#0005 80%)}
-/* CLEAN NAME INTRO — one visible word, one simple animation */
-.intro--name{display:flex;align-items:center;justify-content:center;flex-direction:column;opacity:1;visibility:visible;z-index:20}
-.intro-kicker{position:absolute;top:calc(50% - 105px);margin:0;color:#b9b0ff;font:600 .62rem "Orbitron",sans-serif;letter-spacing:.34em;opacity:1}
-.farid-intro-mark{position:relative;width:100%;height:180px;display:flex;align-items:center;justify-content:center;isolation:isolate}
-.farid-word.intro-full-name{position:relative;display:block;margin:0;padding:0 0 .08em;font:800 clamp(3.2rem,12vw,8rem)/1.2 "Orbitron",sans-serif;letter-spacing:.1em;white-space:nowrap;color:#fff;-webkit-text-fill-color:#fff;text-shadow:0 0 10px #fff,0 0 28px #9b8aff,0 0 58px #6b79ff;opacity:0;transform:translateY(24px);animation:faridNameIn .85s cubic-bezier(.2,.75,.25,1) .25s both;will-change:opacity,transform}
+/* SIGNATURE INTRO — gradient name, soft blur-in, minimal movement */
+.intro--name{display:flex;align-items:center;justify-content:center;flex-direction:column;opacity:1;visibility:visible;z-index:20;animation:none;background:#030309}
+.intro-kicker{position:absolute;top:calc(50% - 145px);margin:0;color:#b9b0d8;font:600 .68rem "Orbitron",sans-serif;letter-spacing:.42em;opacity:0;animation:kickerIn .8s ease .15s both}
+.farid-intro-mark{position:relative;width:100%;height:auto;display:flex;align-items:center;justify-content:center;isolation:isolate}
+.farid-word.intro-full-name{position:relative;display:flex;flex-direction:column;align-items:center;gap:.13em;margin:0;padding:.08em .12em .16em;text-align:center;font:900 clamp(2.65rem,6.2vw,7.1rem)/1.04 "Orbitron",sans-serif;letter-spacing:-.045em;white-space:nowrap;color:transparent;background:linear-gradient(100deg,#ff91d9 0%,#bd83ff 27%,#8d91ff 52%,#d4e7ff 78%,#e8ffff 100%);background-size:220% auto;background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 18px #9d80ff22);opacity:0;transform:translateY(16px);animation:faridNameIn 1.15s cubic-bezier(.2,.75,.25,1) .22s both,signatureGradient 7s ease-in-out 1.4s infinite alternate;will-change:opacity,transform}
+.farid-word.intro-full-name span{display:block}
 .intro-flare{display:none}
-.intro-line{position:absolute;top:calc(50% + 82px);margin:0;width:min(250px,55vw);height:1px;background:linear-gradient(90deg,transparent,#a88aff,transparent);box-shadow:0 0 18px #a88aff;opacity:.7}
-@keyframes faridNameIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-@media(max-width:600px){.intro-kicker{top:calc(50% - 92px);font-size:.5rem;letter-spacing:.24em}.farid-word.intro-full-name{font-size:clamp(2.8rem,13vw,4.8rem);letter-spacing:.08em}.intro-line{top:calc(50% + 72px)}}
-@media(prefers-reduced-motion:reduce){.farid-word.intro-full-name{animation:none;opacity:1;transform:none}}
+.intro-line{position:absolute;top:calc(50% + 172px);margin:0;width:min(290px,55vw);height:1px;background:linear-gradient(90deg,transparent,#a88aff,transparent);box-shadow:0 0 18px #a88aff55;opacity:0;animation:lineGrow 1s ease .8s both}
+@keyframes faridNameIn{from{opacity:0;transform:translateY(24px);filter:blur(12px)}to{opacity:1;transform:translateY(0);filter:blur(0)}}
+@keyframes signatureGradient{from{background-position:0% center}to{background-position:100% center}}
+@media(max-width:600px){.intro-kicker{top:calc(50% - 120px);font-size:.49rem;letter-spacing:.27em}.farid-word.intro-full-name{font-size:clamp(2.25rem,9.7vw,3.6rem);letter-spacing:-.055em;gap:.18em}.intro-line{top:calc(50% + 140px)}}
+@media(prefers-reduced-motion:reduce){.farid-word.intro-full-name{animation:none;opacity:1;transform:none;filter:none}.intro-kicker{animation:none;opacity:1}.intro-line{animation:none;opacity:.7}}
 .intro--welcome{background:radial-gradient(ellipse at center,#09071420,transparent 65%);z-index:21;opacity:0;visibility:hidden;pointer-events:none}
 .intro--welcome p{font:600 clamp(1.1rem,3.4vw,2rem) "Orbitron",sans-serif;letter-spacing:.55em;padding-left:.55em;color:#fff;text-shadow:0 0 12px #d9d0ff,0 0 35px #a18aff,0 0 75px #704aff;animation:welcomePulse 3s ease-in-out both}
 .universe-heading h2,.panel-main h3{font-family:"Space Grotesk",sans-serif}
