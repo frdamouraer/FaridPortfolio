@@ -189,3 +189,17 @@ body{background:#020208}\n.space-bg{z-index:0}
 .space-bg .star{animation-duration:calc(var(--duration,4s) * .72)!important}
 .nebula--one{animation-duration:9s!important}.nebula--two{animation-duration:10s!important}
 @media(prefers-reduced-motion:reduce){.farid-word.intro-full-name span,.intro--name.is-hidden,.space-bg:before{animation:none!important;opacity:1!important;transform:none!important}}
+
+/* Fix: parent title must remain visible while its letters type in */
+.intro--name .farid-word.intro-full-name{
+  opacity:1!important;
+  transform:none!important;
+  filter:none!important;
+  animation:none!important;
+  visibility:visible!important;
+}
+.intro--name .farid-word.intro-full-name span{
+  color:#fff!important;
+  opacity:0;
+  animation:letterTypeSoft .28s ease-out forwards!important;
+}
