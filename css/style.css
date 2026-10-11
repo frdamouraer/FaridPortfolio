@@ -298,8 +298,8 @@ body{background:#020208}\n.space-bg{z-index:0}
   color: #fff !important;
   -webkit-text-fill-color: #fff !important;
   text-shadow: 0 0 10px #fff, 0 0 28px #9b8aff, 0 0 55px #6b79ff !important;
-  visibility: visible !important; opacity: 1 !important; filter: none !important;
-  transform: translateY(0) !important; animation: faridSimpleEntrance .8s ease-out .15s both !important;
+  visibility: visible !important; opacity: 0; filter: none !important;
+  transform: translateY(22px); animation: faridSimpleEntrance .8s ease-out .15s both !important;
 }
 #nameIntro h1.farid-word.intro-full-name span { display: inline !important; opacity: 1 !important; visibility: visible !important; animation: none !important; }
 @keyframes faridSimpleEntrance {
