@@ -70,3 +70,29 @@ body{background:#020208}\n.space-bg{z-index:0}
 /* Final intro timing/alignment correction */
 .intro--welcome.is-active{visibility:visible!important;opacity:1!important}
 .intro--welcome.is-active p{opacity:1;animation:welcomePulse 2.8s ease-in-out both!important}
+
+/* INTRO REBUILD: one clean F impact, then ARID joins it, then WELCOME */
+.farid-word{left:calc(50% - 150px)!important}
+.intro-initial{animation:initialFallClean 1.75s cubic-bezier(.18,.85,.25,1) .1s forwards!important}
+.intro-flare{animation:flareBurstClean 1s .88s ease-out forwards!important}
+.farid-word span:nth-child(1){animation-delay:1.55s!important}
+.farid-word span:nth-child(2){animation-delay:1.7s!important}
+.farid-word span:nth-child(3){animation-delay:1.85s!important}
+.farid-word span:nth-child(4){animation-delay:2s!important}
+@keyframes initialFallClean{
+  0%{opacity:0;top:-115px;transform:translateX(-50%) rotate(-12deg) scale(.72);filter:blur(15px)}
+  42%{opacity:1;top:calc(50% - 48px);transform:translateX(-50%) rotate(3deg) scale(1.12);filter:blur(0)}
+  54%{top:calc(50% - 48px);transform:translateX(-50%) rotate(0) scale(1.05)}
+  68%{top:calc(50% - 48px);transform:translateX(-50%) rotate(0) scale(1)}
+  100%{opacity:1;top:calc(50% - 48px);transform:translateX(calc(-50% - 150px)) rotate(0) scale(1);filter:drop-shadow(0 0 25px #a98aff)}
+}
+@keyframes flareBurstClean{
+  0%,5%{opacity:0;transform:translate(-50%,-50%) scale(.1)}
+  18%{opacity:1;transform:translate(-50%,-50%) scale(1)}
+  52%{opacity:.85;transform:translate(-50%,-50%) scale(2.5)}
+  100%{opacity:0;transform:translate(-50%,-50%) scale(7)}
+}
+.intro--welcome{z-index:25!important;background:radial-gradient(ellipse at center,#100a2b44,transparent 70%)!important}
+.intro--welcome.is-active{visibility:visible!important;opacity:1!important;display:flex!important}
+.intro--welcome.is-active p{opacity:1!important;animation:welcomePulse 2.8s ease-in-out both!important}
+@media(max-width:600px){.farid-word{left:calc(50% - 95px)!important}}
