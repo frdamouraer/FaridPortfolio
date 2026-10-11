@@ -61,3 +61,55 @@ body{background:#020208}\n.space-bg{z-index:0}
 @media(prefers-reduced-motion:reduce){.intro-initial,.farid-word span,.intro-flare,.intro-kicker,.intro-line{animation-duration:.01ms!important;animation-delay:0ms!important}.space-bg:before,.nebula--one,.nebula--two,.star{animation-duration:.01ms!important;animation-iteration-count:1!important}}
 
 
+
+
+/* CLEAN WELCOME INTRO — rebuilt independently from the FARID title */
+#welcomeIntro {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 35 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-direction: row !important;
+  background: radial-gradient(ellipse at center, rgba(73,48,145,.22), rgba(3,3,12,.35) 58%, transparent 78%) !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  transition: opacity .45s ease, visibility .45s ease !important;
+}
+#welcomeIntro.is-active {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: flex !important;
+}
+#welcomeIntro.is-hidden {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+#welcomeIntro p {
+  margin: 0 !important;
+  padding: 0 0 0 .42em !important;
+  color: #fff !important;
+  font: 700 clamp(1.4rem, 4vw, 2.8rem)/1.2 "Orbitron", sans-serif !important;
+  letter-spacing: .42em !important;
+  text-align: center !important;
+  text-shadow: 0 0 10px #fff, 0 0 28px #a18aff, 0 0 60px #704aff !important;
+  opacity: 0;
+  transform: translateY(12px);
+  filter: blur(5px);
+}
+#welcomeIntro.is-active p {
+  animation: welcomeSimpleIn 1s cubic-bezier(.2,.75,.25,1) .12s forwards !important;
+}
+@keyframes welcomeSimpleIn {
+  from { opacity: 0; transform: translateY(12px); filter: blur(5px); }
+  to { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+@media(max-width:600px) {
+  #welcomeIntro p { font-size: clamp(1.2rem, 6vw, 2rem) !important; letter-spacing: .3em !important; }
+}
+@media(prefers-reduced-motion:reduce) {
+  #welcomeIntro.is-active p { animation: none !important; opacity: 1 !important; transform: none !important; filter: none !important; }
+}
