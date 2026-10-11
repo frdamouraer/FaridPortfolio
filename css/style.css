@@ -116,6 +116,8 @@ body{background:#020208}\n.space-bg{z-index:0}
   #welcomeIntro.is-active p { animation: none !important; opacity: 1 !important; transform: none !important; filter: none !important; }
 }
 
-/* FIX: disable the legacy duplicate-text overlay. Keep one FARID text node only. */
-.farid-word.intro-full-name{filter:drop-shadow(0 0 20px #9d80ff35)!important}
-.farid-word.intro-full-name::after{content:none!important;display:none!important;animation:none!important}
+/* FARID SIGNATURE — single narrow light sweep over the existing word */
+.farid-word.intro-full-name{filter:drop-shadow(0 0 14px #9d80ff45)!important}
+.farid-word.intro-full-name::after{content:"FARID";position:absolute;inset:.08em .12em .16em;display:block;font:inherit;letter-spacing:inherit;line-height:inherit;text-align:center;white-space:nowrap;pointer-events:none;color:transparent;background:linear-gradient(100deg,#fff 0%,#d8f5ff 45%,#fff 52%,#d7caff 60%,#fff 100%);background-size:100% 100%;background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;opacity:0;filter:drop-shadow(0 0 8px #b6a1ff) drop-shadow(0 0 20px #8c9dff) drop-shadow(0 0 32px #71d8ff80);-webkit-mask-image:linear-gradient(105deg,transparent 0%,transparent 42%,#000 47%,#000 53%,transparent 58%,transparent 100%);mask-image:linear-gradient(105deg,transparent 0%,transparent 42%,#000 47%,#000 53%,transparent 58%,transparent 100%);-webkit-mask-size:300% 100%;mask-size:300% 100%;-webkit-mask-position:150% center;mask-position:150% center;animation:faridSignatureSweep 2.8s .55s cubic-bezier(.2,.7,.22,1) 1 both}
+@keyframes faridSignatureSweep{0%{opacity:0;-webkit-mask-position:150% center;mask-position:150% center}12%{opacity:1}78%{opacity:1;-webkit-mask-position:-50% center;mask-position:-50% center}100%{opacity:0;-webkit-mask-position:-50% center;mask-position:-50% center}}
+@media(prefers-reduced-motion:reduce){.farid-word.intro-full-name::after{animation:none;opacity:0}}
