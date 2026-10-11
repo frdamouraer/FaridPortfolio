@@ -116,8 +116,6 @@ body{background:#020208}\n.space-bg{z-index:0}
   #welcomeIntro.is-active p { animation: none !important; opacity: 1 !important; transform: none !important; filter: none !important; }
 }
 
-/* FARID SIGNATURE — traveling light sweep, not a permanent outer glow */
-.farid-word.intro-full-name{filter:none!important}
-.farid-word.intro-full-name::after{content:"FARID";position:absolute;inset:0;display:block;font:inherit;letter-spacing:inherit;line-height:inherit;text-align:center;white-space:nowrap;pointer-events:none;color:transparent;background:linear-gradient(108deg,transparent 0%,transparent 32%,#ffffff00 39%,#fff 46%,#c8f1ff 50%,#c5aaff 54%,#ffffff00 62%,transparent 70%);background-size:260% 100%;background-position:145% center;background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;opacity:0;filter:drop-shadow(0 0 8px #b6a1ff) drop-shadow(0 0 19px #8c9dff) drop-shadow(0 0 32px #71d8ff80);animation:faridSignatureSweep 2.8s .55s cubic-bezier(.2,.7,.22,1) 1 both}
-@keyframes faridSignatureSweep{0%{opacity:0;background-position:145% center;filter:drop-shadow(0 0 0 #b6a1ff)}14%{opacity:.28}28%{opacity:1;filter:drop-shadow(0 0 12px #c9baff) drop-shadow(0 0 24px #8c9dff)}48%{opacity:.9;background-position:35% center;filter:drop-shadow(0 0 16px #f1eaff) drop-shadow(0 0 34px #8c9dff) drop-shadow(0 0 46px #71d8ff90)}72%{opacity:.3;background-position:-25% center}88%,100%{opacity:0;background-position:-45% center;filter:drop-shadow(0 0 0 #b6a1ff)}}
-@media(prefers-reduced-motion:reduce){.farid-word.intro-full-name::after{animation:none;opacity:0}}
+/* FIX: disable the legacy duplicate-text overlay. Keep one FARID text node only. */
+.farid-word.intro-full-name{filter:drop-shadow(0 0 20px #9d80ff35)!important}
+.farid-word.intro-full-name::after{content:none!important;display:none!important;animation:none!important}
